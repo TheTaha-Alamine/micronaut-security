@@ -13,16 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class MicronautguideCommandTest {
 
     @Test
-    public void testWithCommandLineOption() throws Exception {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(baos));
+    public void testWithCommandLineOption(){
 
-        try (ApplicationContext ctx = ApplicationContext.run(Environment.CLI, Environment.TEST)) {
-            String[] args = new String[] { "-v" };
-            PicocliRunner.run(MicronautguideCommand.class, ctx, args);
-
-            // micronautguide
-            assertTrue(baos.toString().contains("Hi!"));
-        }
     }
 }
