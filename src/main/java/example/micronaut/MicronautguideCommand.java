@@ -1,28 +1,12 @@
 package example.micronaut;
 
-import io.micronaut.configuration.picocli.PicocliRunner;
-import io.micronaut.context.ApplicationContext;
+import io.micronaut.runtime.Micronaut;
 
-import picocli.CommandLine;
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
 
-@Command(name = "micronautguide", description = "...",
-        mixinStandardHelpOptions = true)
-public class MicronautguideCommand implements Runnable {
+public class MicronautguideCommand{
+    public static void main(String[] args) {
+        Micronaut.run(MicronautguideCommand.class, args);
 
-    @Option(names = {"-v", "--verbose"}, description = "...")
-    boolean verbose;
-
-    public static void main(String[] args) throws Exception {
-        PicocliRunner.run(MicronautguideCommand.class, args);
-    }
-
-    public void run() {
-        // business logic here
-        if (verbose) {
-            System.out.println("Hi!");
-        }
     }
 }
+
